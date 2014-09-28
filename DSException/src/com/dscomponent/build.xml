@@ -6,4 +6,9 @@
     <BuildItem>exception\generic\DSRuntimeException</BuildItem>
     <BuildItem>exception\generic\InitializationException</BuildItem>
   </BuildItems>
+  
+  <Packages>
+    <Package>exception\generic</Package>
+    <Package>exception</Package>
+  </Packages>
 </BuildCatalog>
