@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<BuildCatalog>
+  <!-- The order in Build Items Determine the Order in which to build Files -->
+  <BuildItems>
+    <BuildItem>exception\generic\DSCException</BuildItem>
+    <BuildItem>exception\generic\DSCRuntimeException</BuildItem>
+    <BuildItem>exception\generic\InitializationException</BuildItem>
+  </BuildItems>
+</BuildCatalog>
