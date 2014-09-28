@@ -1,18 +1,18 @@
 package com.dscomponent.exception.generic;
 
-public class DSCException extends Exception
+public class DSException extends Exception
 {
-  public DSCException()
+  public DSException()
   {
     super();
   }
   
-  public DSCException(Throwable cause)
+  public DSException(Throwable cause)
   {
     super(cause);
   }
   
-  public DSCException(String message)
+  public DSException(String message)
   {
     super(message);
   }

@@ -1,18 +1,18 @@
 package com.dscomponent.exception.generic;
 
-public class DSCRuntimeException extends DSCException
+public class DSRuntimeException extends RuntimeException
 {
-  public DSCRuntimeException()
+  public DSRuntimeException()
   {
     super();
   }
   
-  public DSCRuntimeException(String message)
+  public DSRuntimeException(String message)
   {
     super(message);
   }
   
-  public DSCRuntimeException(Throwable cause)
+  public DSRuntimeException(Throwable cause)
   {
     super(cause);
   }

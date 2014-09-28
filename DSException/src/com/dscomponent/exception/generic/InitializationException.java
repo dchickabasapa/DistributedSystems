@@ -1,6 +1,6 @@
 package com.dscomponent.exception.generic;
 
-public class InitializationException extends DSCException
+public class InitializationException extends DSCRuntimeException
 {
   private String message = null;
   
