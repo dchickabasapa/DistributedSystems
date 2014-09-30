@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<BuildCatalog>
+  <BuildItems>
+    <BuildItem>queue\DSQueue</BuildItem>
+    <BuildItem>queue\DSQueueTest</BuildItem>
+  </BuildItems>
+  
+  <Packages>
+    <Package>queue</Package>
+  </Packages>
+  
+</BuildCatalog>
