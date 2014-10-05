@@ -18,9 +18,18 @@ function CompileFromBuildXmlFile ($xmlFile)
   }
 }
 
-function CompileComponent()
+function CompileComponentSource()
 {
   $srcDirectory = "$Component\src"
+  foreach ($item in (Get-ChildItem $srcDirectory -include build.xml -Recurse))
+  {
+    CompileFromBuildXmlFile $item
+  }
+}
+
+function CompileComponentTests()
+{
+  $srcDirectory = "$Component\testsrc"
   foreach ($item in (Get-ChildItem $srcDirectory -include build.xml -Recurse))
   {
     CompileFromBuildXmlFile $item
@@ -53,8 +62,15 @@ function CleanComponent()
     {
       CleanFromBuildXmlFile $item
     }
-   
-    Write-host "`n`t Deletion Successful!!! "
+
+    $componentDirectory = "$Component\testsrc"
+    foreach ($item in (Get-ChildItem $componentDirectory -include build.xml -Recurse))
+    {
+      CleanFromBuildXmlFile $item
+    }
+    
+
+   Write-host "`n`t Deletion Successful!!! "
   }
 }
 
@@ -68,16 +84,22 @@ function BuildClassesFolder()
 
 try 
 {
-  if ($Clean)
+  if ($Clean -and ($Clean -eq "clean"))
   {
     cleanComponent
   }
   
   BuildClassesFolder
   
-  Write-host "`n`n`t Building Project $Component `n"
-  CompileComponent
+  Write-host "`n`n`t Building Source Files in Project $Component `n"
+  CompileComponentSource
   Write-host "`n`n`t Build Successful!!!`n`n"
+  
+  Write-host "`n`n`t Building Tests in Project $Component `n"
+  CompileComponentTests
+  Write-host "`n`n`t Build Successful!!!`n`n"
+  
+  
 }
 finally
 {

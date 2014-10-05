@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<BuildCatalog>
+  <BuildItems>
+    <BuildItem>queuetest\DSQueueTest</BuildItem>
+    <BuildItem>queuetest\DSQueueBasicOperationsTest</BuildItem>
+    <BuildItem>queuetest\DSQueueNonWaitModeTest</BuildItem>
+    <BuildItem>queuetest\DSQueueTester</BuildItem> 
+  </BuildItems>
+  
+  <Packages>
+    <Package>queuetest</Package>
+  </Packages>
+  
+</BuildCatalog>

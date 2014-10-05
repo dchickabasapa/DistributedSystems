@@ -91,7 +91,7 @@ public class DSQueue<E>
   
   public synchronized boolean isEmpty()
   {
-    return (capacity == 0);
+    return (currentCount == 0);
   }
   
   public synchronized E poll()

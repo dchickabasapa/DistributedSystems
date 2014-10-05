@@ -2,7 +2,6 @@
 <BuildCatalog>
   <BuildItems>
     <BuildItem>queue\DSQueue</BuildItem>
-    <BuildItem>queue\DSQueueTest</BuildItem>
   </BuildItems>
   
   <Packages>

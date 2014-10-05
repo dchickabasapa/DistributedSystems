@@ -14,33 +14,62 @@ function BuildComponentDirectory()
 
 function BuildSourceDirectories()
 {
-  $sourceDirectoryPath = ".\$ComponentName"
+  $sourceDirectoryPath = ".\$ComponentName\src"
+  $testsourceDirectoryPath = ".\$ComponentName\testsrc"
   
-  $sourceDirectoryPath = "$sourceDirectoryPath\src"
   if (!(test-path $sourceDirectoryPath))
   {
     New-Item -Path $sourceDirectoryPath -type Directory
     Write-host "`nsrc Directory Created"
   }
   
+  if (!(test-path $testsourceDirectoryPath))
+  {
+    New-Item -Path $testsourceDirectoryPath -type Directory
+    Write-host "`ntestsrc Directory Created"
+  }
+  
+  
   $sourceDirectoryPath = "$sourceDirectoryPath\com"
+  $testsourceDirectoryPath = "$testsourceDirectoryPath\com"
+  
   if (!(test-path $sourceDirectoryPath))
   {
     New-Item -Path $sourceDirectoryPath -type Directory
     Write-host "`nsrc\com Directory Created"  
   }
   
+  if (!(test-path $testsourceDirectoryPath))
+  {
+    New-Item -Path $testsourceDirectoryPath -type Directory
+    Write-host "`ntestsrc\com Directory Created"  
+  }
+  
   $sourceDirectoryPath = "$sourceDirectoryPath\dscomponent"
+  $testsourceDirectoryPath = "$testsourceDirectoryPath\dscomponent"
+  
   if (!(test-path $sourceDirectoryPath))
   {
     New-Item -Path $sourceDirectoryPath -type Directory
     Write-host "`nsrc\com\dscomponent Directory Created"  
   }
   
-  if (!(test-path $sourceDirectoryPath\Build.xml))
+  if (!(test-path $testsourceDirectoryPath))
   {
-    New-Item -Path $sourceDirectoryPath\Build.xml -type File
+    New-Item -Path $testsourceDirectoryPath -type Directory
+    Write-host "`ntestsrc\com\dscomponent Directory Created"  
+  }
+  
+  if (!(test-path $sourceDirectoryPath\build.xml))
+  {
+    New-Item -Path $sourceDirectoryPath\build.xml -type File
     Write-host "`nBuild.xml file added under src\com\dscomponent"    
+  }
+ 
+  if (!(test-path $testsourceDirectoryPath\build.xml))
+  {
+    New-Item -Path $testsourceDirectoryPath\build.xml -type File
+    Write-host "`nBuild.xml file added under testsrc\com\dscomponent"    
   }
 }
 
