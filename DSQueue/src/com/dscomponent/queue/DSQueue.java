@@ -59,6 +59,7 @@ public class DSQueue<E>
     data[inputIndex] = dataItem;
     inputIndex = (inputIndex + 1) % capacity;
     currentCount++;
+    notifyAll();
   }
   
   public synchronized E dequeue()
@@ -86,6 +87,7 @@ public class DSQueue<E>
     E outputItem = data[outputIndex];
     outputIndex = (outputIndex + 1) % capacity;
     currentCount--;
+    notifyAll();
     return outputItem;
   }
   
@@ -117,6 +119,7 @@ public class DSQueue<E>
     }
     
     E outputItemRef = data[outputIndex];
+    notifyAll();
     return outputItemRef;
   }
 }

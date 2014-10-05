@@ -3,14 +3,8 @@ package com.dscomponent.queuetest;
 import com.dscomponent.queue.DSQueue;
 import com.dscomponent.exception.generic.DSRuntimeException;
 
-public class DSQueueBasicOperationsMultiThreadedTest
-{
-  
 
-
-}
-
-class DSQueueMultiThreadedTestHelper
+public class DSQueueMultiThreadedTestHelper
 {
 
   DSQueue<Integer> queue;
@@ -26,10 +20,19 @@ class DSQueueMultiThreadedTestHelper
   
   public void enqueueAll()
   {
-    for (; currentInputIndex < inputEntries.length; currentInputIndex++)
+    try
     {
-      queue.enqueue(inputEntries[currentInputIndex]);
-      System.out.println("\n\tEnqueued : " + inputEntries[currentInputIndex]);
+      for (; currentInputIndex < inputEntries.length; currentInputIndex++)
+      {
+        queue.enqueue(inputEntries[currentInputIndex]);
+        System.out.println("\n\tEnqueued : " + inputEntries[currentInputIndex]);
+        Thread.sleep(300);
+      }
+    }
+    catch(InterruptedException ie)
+    {
+      // Unexpected State
+      throw new DSRuntimeException("Interruped Exception during Enqueue Method Sleep");
     }
   }
   
@@ -49,8 +52,8 @@ class DSQueueMultiThreadedTestHelper
       while(dequeueCount > 0)
       {
         dequeueCount--;
-        System.out.println("Dequeued : " + queue.dequeue());
-        Thread.sleep(5000);
+        System.out.println("\n\tDequeued : " + queue.dequeue() + " dequeueCount : " + dequeueCount);
+        Thread.sleep(500);
       }
     }
     catch(InterruptedException ie)
@@ -65,6 +68,24 @@ class DSQueueMultiThreadedTestHelper
     System.out.println("Dequeued : " + queue.dequeue());
   }
 
+  public void pollToCount(int pollCount)
+  {
+    try
+    {
+      while(pollCount > 0)
+      {
+        pollCount--;
+        System.out.println("\n\tPolled : " + queue.poll() + " Poll Count : " + pollCount);
+        Thread.sleep(400);
+      }
+    }
+    catch (InterruptedException ie)
+    {
+      // Unexpected State
+      throw new DSRuntimeException("Interruped Exception during Dequeue Method Sleep");
+    }
+  }
+  
   public void pollOne()
   {
     System.out.println("Polled : " + queue.poll());

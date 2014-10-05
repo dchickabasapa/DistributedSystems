@@ -203,7 +203,5 @@ public class DSQueueBasicOperationsTest
     return true;
 
   
-  }
-  
-  
+  }  
 }

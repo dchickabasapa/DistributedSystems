@@ -19,12 +19,27 @@ public class DSQueueTester
     
     if (testsPassed)
     {
+      testsPassed = testWaitMode();
+    }
+    
+    if (testsPassed)
+    {
       System.out.println("\n\n\tTests Passed!!\n\n ");
     }
     else
     {
       System.out.println("\n\n\tTests Failed\n\n");  
     }
+  }
+  
+  public boolean testWaitMode()
+  {
+    DSQueueWaitModeTest waitModeTest = new DSQueueWaitModeTest();
+    boolean testsPassed = false;
+    
+    testsPassed = waitModeTest.testWaitModeQueueOperation();
+    
+    return testsPassed;
   }
   
   public boolean testNonWaitMode()
