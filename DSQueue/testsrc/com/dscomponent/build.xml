@@ -3,6 +3,7 @@
   <BuildItems>
     <BuildItem>queuetest\DSQueueTest</BuildItem>
     <BuildItem>queuetest\DSQueueBasicOperationsTest</BuildItem>
+    <BuildItem>queuetest\DSQueueBasicOperationsMultiThreadedTest</BuildItem>
     <BuildItem>queuetest\DSQueueNonWaitModeTest</BuildItem>
     <BuildItem>queuetest\DSQueueTester</BuildItem> 
   </BuildItems>
